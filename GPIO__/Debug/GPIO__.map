@@ -1,0 +1,240 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.4                    
+******************************************************************************
+>> Linked Fri Feb 21 22:49:39 2020
+
+OUTPUT FILE NAME:   <GPIO__.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000094d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000a89  0003f577  R  X
+  SRAM                  20000000   00008000  0000036c  00007c94  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000a8c   00000a8c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000766   00000766    r-x .text
+  000009d2    000009d2    00000003   00000003    r-- .const
+  000009d8    000009d8    000000b4   000000b4    r-- .cinit
+20000000    20000000    0000036c   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000016c   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123fh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000766     
+                  0000026c    000002e4     port.obj (.text)
+                  00000550    000001fc     dio.obj (.text)
+                  0000074c    000000b8     SysCtr.obj (.text)
+                  00000804    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000008a0    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00000908    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000094c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00000980    00000030     main.obj (.text)
+                  000009b0    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000009be    0000000c     tm4c123fh6pm_startup_ccs.obj (.text)
+                  000009ca    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000009ce    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    000009d2    00000003     
+                  000009d2    00000003     main.obj (.const:$P$T0$1)
+
+.cinit     0    000009d8    000000b4     
+                  000009d8    000000a4     (.cinit..data.load) [load image, compression = lzss]
+                  00000a7c    00000008     (__TI_handler_table)
+                  00000a84    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    0000016c     UNINITIALIZED
+                  20000200    0000012d     port_lcfg.obj (.data:PortCfgArr)
+                  2000032d    00000003     --HOLE--
+                  20000330    00000018     dio.obj (.data:BaseAddrArr)
+                  20000348    00000018     port.obj (.data:BaseAddrArr)
+                  20000360    00000008     SysCtr.obj (.data)
+                  20000368    00000004     SysCtr.obj (.data:gstr_SYSCTRL_Object)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       tm4c123fh6pm_startup_ccs.obj   12     620       0      
+       main.obj                       48     3         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         60     623       0      
+                                                              
+    .\MCAL\PortDriver\
+       port.obj                       740    0         24     
+    +--+------------------------------+------+---------+---------+
+       Total:                         740    0         24     
+                                                              
+    .\MCAL\SysCtr\
+       SysCtr.obj                     184    0         12     
+    +--+------------------------------+------+---------+---------+
+       Total:                         184    0         12     
+                                                              
+    .\MCAL\dio\
+       dio.obj                        508    0         24     
+    +--+------------------------------+------+---------+---------+
+       Total:                         508    0         24     
+                                                              
+    .\config\
+       port_lcfg.obj                  0      0         301    
+    +--+------------------------------+------+---------+---------+
+       Total:                         0      0         301    
+                                                              
+    C:\ti\ccs930\ccs\tools\compiler\ti-cgt-arm_18.12.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         402    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      180       0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   1894   803       873    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000a84 records: 1, size/record: 8, table size: 8
+	.data: load addr=000009d8, load size=000000a4 bytes, run addr=20000200, run size=0000016c bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000a7c records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+000009cf  C$$EXIT                       
+000006e5  Dio_FlipChannel               
+00000551  Dio_FlipPort                  
+00000639  Dio_ReadChannel               
+000005b5  Dio_ReadChannelGroup          
+000005ed  Dio_ReadPort                  
+00000691  Dio_WriteChannel              
+00000577  Dio_WriteChannelGroup         
+00000613  Dio_WritePort                 
+0000026d  PORT_init                     
+20000200  PortCfgArr                    
+000009bf  ResetISR                      
+000007e5  SysCtr_getSysClockFreq        
+0000074d  SysCtr_init                   
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00000a84  __TI_CINIT_Base               
+00000a8c  __TI_CINIT_Limit              
+00000a7c  __TI_Handler_Table_Base       
+00000a84  __TI_Handler_Table_Limit      
+00000909  __TI_auto_init_nobinit_nopinit
+000008a1  __TI_decompress_lzss          
+000009b1  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00000805  __aeabi_memcpy                
+00000805  __aeabi_memcpy4               
+00000805  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+0000094d  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+000009cb  _system_pre_init              
+000009cf  abort                         
+ffffffff  binit                         
+00000000  g_pfnVectors                  
+20000368  gstr_SYSCTRL_Object           
+20000364  gu32_Timer                    
+20000360  gu8_MOSC                      
+00000981  main                          
+00000805  memcpy                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  PORT_init                     
+00000551  Dio_FlipPort                  
+00000577  Dio_WriteChannelGroup         
+000005b5  Dio_ReadChannelGroup          
+000005ed  Dio_ReadPort                  
+00000613  Dio_WritePort                 
+00000639  Dio_ReadChannel               
+00000691  Dio_WriteChannel              
+000006e5  Dio_FlipChannel               
+0000074d  SysCtr_init                   
+000007e5  SysCtr_getSysClockFreq        
+00000805  __aeabi_memcpy                
+00000805  __aeabi_memcpy4               
+00000805  __aeabi_memcpy8               
+00000805  memcpy                        
+000008a1  __TI_decompress_lzss          
+00000909  __TI_auto_init_nobinit_nopinit
+0000094d  _c_int00_noargs               
+00000981  main                          
+000009b1  __TI_decompress_none          
+000009bf  ResetISR                      
+000009cb  _system_pre_init              
+000009cf  C$$EXIT                       
+000009cf  abort                         
+00000a7c  __TI_Handler_Table_Base       
+00000a84  __TI_CINIT_Base               
+00000a84  __TI_Handler_Table_Limit      
+00000a8c  __TI_CINIT_Limit              
+20000000  __stack                       
+20000200  PortCfgArr                    
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000360  gu8_MOSC                      
+20000364  gu32_Timer                    
+20000368  gstr_SYSCTRL_Object           
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[46 symbols]

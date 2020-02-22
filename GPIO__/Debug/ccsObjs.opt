@@ -1,0 +1,1 @@
+"./main.obj" "./tm4c123fh6pm_startup_ccs.obj" "./MCAL/PortDriver/port.obj" "./MCAL/SysCtr/SysCtr.obj" "./MCAL/dio/dio.obj" "./MCAL/nvic/nvic.obj" "./config/nvic_lcfg.obj" "./config/port_lcfg.obj" "./utils/processor/processor.obj" "../tm4c123fh6pm.cmd" -llibc.a 
